@@ -25,13 +25,19 @@ export const runCommand = async (command: string) => {
  * to:
  * '--all-namespaces --namespace=my-namespace'
  */
-export const buildFlagsString = (flags: object) => {
+ export const buildFlagsString = (flags: object) => {
   let flagsString = '';
   Object.entries(flags).forEach(([key, value]) => {
     if (typeof value === 'boolean') {
-      flagsString += value === false ? '' : ` ${key}`;
+      flagsString += value === false ? '' : key;
     } else if (typeof value === 'string') {
-      flagsString += value.length === 0 ? '' : ` ${key}=${value}`;
+      flagsString += value.length === 0 ? '' : key + "=" + value;
+    }
+    else if (Array.isArray(value)) {
+      // Handle CLI --set values
+    	value.forEach((e => {
+      	flagsString += " " + e
+      }))
     }
   });
   return flagsString.trim();

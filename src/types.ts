@@ -1,5 +1,6 @@
 export type GlobalFlags = {
   namespace?: string,
+  cliValues?: Array<string>,
 }
 
 export type ListFlags = GlobalFlags & {
