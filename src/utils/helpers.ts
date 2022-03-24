@@ -31,7 +31,7 @@ export const runCommand = async (command: string) => {
     if (typeof value === 'boolean') {
       flagsString += value === false ? '' : key;
     } else if (typeof value === 'string') {
-      flagsString += value.length === 0 ? '' : key + "=" + value;
+      flagsString += value.length === 0 ? '' : ' ' + key + "=" + value;
     }
     else if (Array.isArray(value)) {
       // Handle CLI --set values

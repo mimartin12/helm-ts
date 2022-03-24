@@ -8,6 +8,7 @@ export type ListFlags = GlobalFlags & {
 }
 
 export type InstallFlags = GlobalFlags & {
+  version?: string,
 }
 
 export type Release = {
@@ -40,4 +41,8 @@ export type RepoAddFlags = GlobalFlags & {
 }
 
 export type RepoListFlags = GlobalFlags & {
+}
+
+export type RegistryLoginFlags =  GlobalFlags & {
+  username?: string,
 }
